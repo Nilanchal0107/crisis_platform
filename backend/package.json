@@ -1,0 +1,33 @@
+{
+  "name": "@vrl/backend",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "seed": "tsx src/db/seed.ts",
+    "test": "tsx tests/incident.test.ts && tsx tests/concurrency.test.ts && tsx tests/task.test.ts && tsx tests/reconciliation.test.ts && tsx tests/demoPath.e2e.test.ts",
+    "test:concurrency": "tsx tests/concurrency.test.ts",
+    "test:task": "tsx tests/task.test.ts",
+    "test:reconciliation": "tsx tests/reconciliation.test.ts",
+    "test:e2e": "tsx tests/demoPath.e2e.test.ts"
+  },
+  "dependencies": {
+    "@vrl/shared": "*",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.4",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}
