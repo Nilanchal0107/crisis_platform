@@ -1,0 +1,24 @@
+{
+  "name": "verified-response-ledger",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "build:shared": "npm run build --workspace=shared",
+    "build:backend": "npm run build --workspace=backend",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build": "npm run build:shared && npm run build:backend && npm run build:frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev": "npm run build:shared && concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "reset:demo": "curl -X POST http://localhost:3000/api/demo/reset"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  }
+}
